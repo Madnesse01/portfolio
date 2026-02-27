@@ -1,0 +1,63 @@
+/* global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background image file named logobg2 (extension to be added) */
+    background: url('logobg2.jpg') center/cover no-repeat fixed #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    font-family: 'Anonymous Pro', monospace;
+    padding-top: 3rem;
+    overflow-x: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: drop 1s ease-out forwards;
+}
+
+@keyframes drop {
+    from {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.btn {
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #fff;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.2);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
