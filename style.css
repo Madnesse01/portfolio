@@ -45,6 +45,12 @@ h1 {
     }
 }
 
+/* button entrance animation (used on load) */
+@keyframes btn-appear {
+    from { opacity: 0; transform: translateY(-20px) scale(0.9); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 .btn {
     /* reset default button/link spacing */
     margin: 0;
@@ -58,7 +64,9 @@ h1 {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
-    transition: background 0.3s, transform 0.2s;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    opacity: 0;
+    animation: btn-appear 0.5s ease-out forwards;
 }
 
 /* navigation container in upper right */
@@ -70,11 +78,18 @@ h1 {
     gap: 0.5rem;
 }
 
+/* stagger button entrance */
+.nav .btn:nth-child(1) { animation-delay: 0.1s; }
+.nav .btn:nth-child(2) { animation-delay: 0.2s; }
+.nav .btn:nth-child(3) { animation-delay: 0.3s; }
+
 .btn:hover {
-    background: rgba(255,255,255,0.2);
-    transform: translateY(-2px);
+    background: rgba(0,255,255,0.2);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 8px cyan, 0 0 16px magenta;
 }
 
 .btn:active {
-    transform: translateY(0);
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 0 4px cyan;
 }
