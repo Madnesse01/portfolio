@@ -6,19 +6,24 @@
 }
 
 body {
-    /* background image file named logobg2 (extension to be added) */
-    background: url('logobg2.jpg') center/cover no-repeat fixed #000;
+    /* background LOGOBG2.png on every page */
+    background: url('LOGOBG2.png') center/cover no-repeat fixed #000;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     min-height: 100vh;
     font-family: 'Anonymous Pro', monospace;
-    padding-top: 3rem;
+    padding: 1rem;
     overflow-x: hidden;
 }
 
 .container {
-    text-align: center;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    text-align: left;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
