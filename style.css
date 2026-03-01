@@ -20,11 +20,37 @@ body {
 .container {
     position: absolute;
     top: 1rem;
-    left: 1rem;
+    left: 4.5rem; /* сдвиг вправо чтобы освободить место для логотипа */
     text-align: left;
     margin: 0;
     padding: 0;
 }
+
+/* логотип в левом верхнем углу */
+.site-logo {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    z-index: 150;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.site-logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.site-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 6px #0ff, 0 0 12px #f0f;
+    border: 2px solid #0ff;
+    border-radius: 4px;
+}
+
 
 h1 {
     color: #ffffff;
@@ -76,9 +102,12 @@ h1 {
     right: 1rem;
     display: flex;
     gap: 0.5rem;
+    z-index: 100;
 }
 
-/* stagger button entrance */
+.nav .btn {
+    animation: btn-appear 0.5s ease-out forwards;
+}
 .nav .btn:nth-child(1) { animation-delay: 0.1s; }
 .nav .btn:nth-child(2) { animation-delay: 0.2s; }
 .nav .btn:nth-child(3) { animation-delay: 0.3s; }
@@ -93,7 +122,7 @@ h1 {
     transform: translateY(0) scale(0.98);
     box-shadow: 0 0 4px cyan;
 }
-/* Projects container */
+
 .projects-container {
     position: fixed;
     top: 0;
@@ -132,15 +161,43 @@ h1 {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(0, 255, 255, 0.3);
     border-radius: 8px;
-    padding: 1.5rem;
+    overflow: hidden;
     text-align: center;
     transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
+}
+
+.card-image {
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .project-card:nth-child(1) { animation-delay: 0.2s; }
@@ -166,18 +223,6 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.4), 0 0 30px rgba(255, 0, 255, 0.2);
 }
 
-.project-card img {
-    max-width: 120px;
-    height: auto;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover img {
-    transform: scale(1.1);
-}
-
 .project-card h2 {
     color: #00ffff;
     font-size: 1.3rem;
@@ -185,8 +230,122 @@ h1 {
     letter-spacing: 1px;
 }
 
+/* контактный блок */
+.contact-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border: 2px solid #0ff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4), 0 0 40px rgba(255, 0, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    animation: slideDown 1s ease-out forwards;
+    opacity: 0;
+}
+
+.contact-item {
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* hero section on main page */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem 2rem;
+    animation: heroAppear 1s ease-out forwards;
+    opacity: 0;
+}
+
+.hero-logo {
+    display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-logo img {
+    width: 220px;
+    height: auto;
+}
+
+.hero-logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 8px #0ff, 0 0 16px #f0f;
+}
+
+.hero-text {
+    color: #fff;
+    text-shadow: 0 0 12px rgba(0,255,255,0.7);
+    max-width: 500px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    opacity: 0;
+    animation: textFade 1.2s 0.5s ease-out forwards;
+}
+
+@keyframes heroAppear {
+    from {opacity:0; transform: scale(0.9);} 
+    to {opacity:1; transform: scale(1);} 
+}
+
+@keyframes textFade {
+    from {opacity:0; transform: translateY(20px);} 
+    to {opacity:1; transform: translateY(0);} 
+}
+
+@keyframes logoSpin {
+    from {transform: rotate(0deg);} 
+    to {transform: rotate(360deg);} 
+}
+
 .project-card p {
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.95rem;
     line-height: 1.5;
+}
+
+.project-card .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.project-card .tags span {
+    background: rgba(0, 255, 255, 0.2);
+    color: #0ff;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
