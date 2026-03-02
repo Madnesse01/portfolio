@@ -1,4 +1,4 @@
-/* global reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-    /* background LOGOBG2.png on every page */
+    
     background: url('LOGOBG2.png') center/cover no-repeat fixed #000;
     display: flex;
     justify-content: flex-start;
@@ -20,13 +20,13 @@ body {
 .container {
     position: absolute;
     top: 1rem;
-    left: 4.5rem; /* сдвиг вправо чтобы освободить место для логотипа */
+    left: 4.5rem; 
     text-align: left;
     margin: 0;
     padding: 0;
 }
 
-/* логотип в левом верхнем углу */
+
 .site-logo {
     position: absolute;
     top: 0.75rem;
@@ -71,14 +71,14 @@ h1 {
     }
 }
 
-/* button entrance animation (used on load) */
+
 @keyframes btn-appear {
     from { opacity: 0; transform: translateY(-20px) scale(0.9); }
     to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .btn {
-    /* reset default button/link spacing */
+    
     margin: 0;
     padding: 0.75rem 1.5rem;
     font-size: 1rem;
@@ -95,7 +95,7 @@ h1 {
     animation: btn-appear 0.5s ease-out forwards;
 }
 
-/* navigation container in upper right */
+
 .nav {
     position: absolute;
     top: 1rem;
@@ -230,7 +230,7 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* контактный блок */
+
 .contact-box {
     position: fixed;
     top: 50%;
@@ -267,7 +267,7 @@ h1 {
     }
 }
 
-/* hero section on main page */
+
 .hero {
     display: flex;
     align-items: center;
@@ -348,4 +348,15 @@ h1 {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.footer-text {
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    color: #0ff;
+    font-size: 2rem;
+    font-family: 'Anonymous Pro', monospace;
+    letter-spacing: 2px;
+    z-index: 100;
 }
